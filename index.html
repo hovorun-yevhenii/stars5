@@ -5,31 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>All stars</title>
     <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arimo" />
     <link rel="stylesheet/less" type="text/css" href="style.less" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.4/vue.min.js"></script>
-
 </head>
 <body>
     <div id="app">
-        <div @click="openModal" class="btn btn--flat">
-            Open rating popup
-        </div>
+        <div @click="openModal" class="btn btn--flat">Open popup</div>
 
         <transition name="modal">
-            <app-modal v-if="modalIsOpen" @close_modal="close_modal">
-            </app-modal>
+            <app-modal v-if="modalIsOpen" @close_modal="close_modal"></app-modal>
         </transition>
 
-        <div class="json">{{json}}</div>
+        <div class="json">{{ json }}</div>
     </div>
 
     <!-- ------- MODAL POPUP ------- -->
     <script type="text/x-template" id="app-modal">
         <div class="modal">
             <div class="modal__body">
-
                 <div @click="close_modal()" class="modal__close-btn">
                     <svg viewBox="0 0 174.2 174.2">
                         <path fill="#fff" d="M146.537,1.047c-1.396-1.396-3.681-1.396-5.077,0L89.658,52.849
@@ -43,9 +38,8 @@
                 </div>
 
                 <h2 class="title">How did we do?</h2>
-
                 <p class="paragraph">
-                    Please let us know how your food delievery was.
+                    Please let us know how your food delivery was.
                     It will really help us to keep improving our service!
                 </p>
 
@@ -56,9 +50,7 @@
                           @change="setRating">
                 </app-rate>
 
-                <div @click="close_modal('submit')" class="btn">
-                    Submit feedback
-                </div>
+                <div @click="close_modal('submit')" class="btn">Submit feedback</div>
             </div>
         </div>
     </script>
@@ -66,7 +58,7 @@
     <!-- ------- RATE START GROUP ------- -->
     <script type="text/x-template" id="app-rate">
         <div class="rate">
-            <p class="paragraph">{{label}}</p>
+            <p class="paragraph">{{ label }}</p>
 
             <div @mousemove="mouseMove"
                  @mouseout="mouseOut"
@@ -88,8 +80,14 @@
     <!-- ------- RATE STAR ------- -->
     <script type="text/x-template" id="rate-star">
         <svg viewBox="0 0 40 38" :width="starWidth">
-            <path :fill="starColor" d="M20.791.574l5.663 11.328 12.663 1.816c.763.11 1.068 1.035.516 1.566l-9.163 8.817 2.163 12.45c.13.75-.667 1.322-1.35.968l-11.326-5.878-11.326 5.878c-.682.354-1.48-.218-1.35-.968l2.164-12.45-9.163-8.817c-.552-.531-.247-1.457.515-1.566l12.663-1.816L19.123.574c.341-.682 1.327-.682 1.668 0"></path>
-            <path fill="rgba(255,255,255,.5)" d="M3.427 15.697a.463.463 0 0 1-.46-.393.46.46 0 0 1 .393-.52l11.027-1.582 4.978-9.957a.467.467 0 0 1 .622-.209c.23.112.326.387.212.615l-5.087 10.173a.464.464 0 0 1-.35.251L3.494 15.692a.425.425 0 0 1-.067.005M9.494 35.18a.46.46 0 0 1-.459-.537l1.539-8.852a.464.464 0 0 1 .537-.375.46.46 0 0 1 .38.53l-1.539 8.852a.463.463 0 0 1-.458.382"></path>
+            <path :fill="starColor" d="M20.791.574l5.663 11.328 12.663 1.816c.763.11 1.068 1.035.516 1.566l-9.163
+            8.817 2.163 12.45c.13.75-.667 1.322-1.35.968l-11.326-5.878-11.326 5.878c-.682.354-1.48-.218-1.35-.968
+            l2.164-12.45-9.163-8.817c-.552-.531-.247-1.457.515-1.566l12.663-1.816L19.123.574
+            c.341-.682 1.327-.682 1.668 0"></path>
+            <path fill="rgba(255,255,255,.5)" d="M3.427 15.697a.463.463 0 0 1-.46-.393.46.46 0 0 1 .393-.52
+            l11.027-1.582 4.978-9.957a.467.467 0 0 1 .622-.209c.23.112.326.387.212.615l-5.087 10.173
+            a.464.464 0 0 1-.35.251L3.494 15.692a.425.425 0 0 1-.067.005M9.494 35.18a.46.46 0 0 1-.459-.537
+            l1.539-8.852a.464.464 0 0 1 .537-.375.46.46 0 0 1 .38.53l-1.539 8.852a.463.463 0 0 1-.458.382"></path>
         </svg>
     </script>
 

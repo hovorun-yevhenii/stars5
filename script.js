@@ -24,10 +24,6 @@ Vue.component("app-rate", {
             default: 5,
             type: Number
         },
-        label: {
-            type: String,
-            default: "Select rating, please"
-        },
         clr_prime: {
             type: String,
             default: "#EBB82F"
@@ -36,6 +32,7 @@ Vue.component("app-rate", {
             type: String,
             default: "#E3E3E3"
         },
+        label: String,
         refer: String
     },
     data() {
